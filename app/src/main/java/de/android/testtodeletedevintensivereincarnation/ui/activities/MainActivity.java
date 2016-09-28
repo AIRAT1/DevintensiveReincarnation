@@ -1,7 +1,9 @@
-package de.android.testtodeletedevintensivereincarnation;
+package de.android.testtodeletedevintensivereincarnation.ui.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import de.android.testtodeletedevintensivereincarnation.R;
 
 public class MainActivity extends AppCompatActivity {
 
