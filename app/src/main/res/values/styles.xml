@@ -25,8 +25,12 @@
         <item name="android:layout_marginRight">@dimen/spacing__medium_32</item>
     </style>
 
-    <style name="VerticalLinesStyle">
+    <style name="vertical_lines_style">
         <item name="android:background">@color/grey_light</item>
+    </style>
+
+    <style name="custom_dialog">
+        <item name="android:fullDark">@android:color/transparent</item>
     </style>
 
 </resources>
