@@ -3,8 +3,11 @@ package de.android.testtodeletedevintensivereincarnation.ui.activities;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -16,6 +19,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ImageView callImg;
     private CoordinatorLayout coordinatorLayout;
     private Toolbar toolbar;
+    private DrawerLayout navigationDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         coordinatorLayout = (CoordinatorLayout)findViewById(R.id.main_coordinator_container);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
+        navigationDrawer = (DrawerLayout)findViewById(R.id.navigation_drawer);
+
         callImg = (ImageView)findViewById(R.id.call_img);
         callImg.setOnClickListener(this);
         setupToolbar();
@@ -32,6 +38,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }else {
             // активность уже создавалась
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            navigationDrawer.openDrawer(GravityCompat.START);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -46,6 +60,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
+    @SuppressWarnings("unused")
     private void showSnackbar(String message) {
         Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_LONG).show();
     }
