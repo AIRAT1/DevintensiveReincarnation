@@ -80,11 +80,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab:
-                showSnackbar("click");
                 if (currentEditMode == 0) {
+                    fab.setImageResource(R.drawable.ic_create_black_24dp);
                     changeEditMode(1);
                     currentEditMode = 1;
                 }else {
+                    fab.setImageResource(R.drawable.ic_done_black_24dp);
                     changeEditMode(0);
                     currentEditMode = 0;
                 }

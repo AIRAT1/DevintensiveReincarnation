@@ -2,5 +2,12 @@ package de.android.testtodeletedevintensivereincarnation.utils;
 
 public class ConstantManager {
     public static final String TAG_PREFIX = "DEV ";
+
     public static final String EDIT_MODE_KEY = "EDIT_MODE_KEY";
+
+    public static final String USER_PHONE_KEY = "USER_PHONE_KEY";
+    public static final String USER_MAIL_KEY = "USER_MAIL_KEY";
+    public static final String USER_VK_KEY = "USER_VK_KEY";
+    public static final String USER_GIT_KEY = "USER_GIT_KEY";
+    public static final String USER_BIO_KEY = "USER_BIO_KEY";
 }
