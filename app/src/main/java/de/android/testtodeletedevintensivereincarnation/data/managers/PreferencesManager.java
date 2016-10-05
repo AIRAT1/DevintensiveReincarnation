@@ -12,7 +12,7 @@ public class PreferencesManager {
     private SharedPreferences sharedPreferences;
 
     private static final String[] USER_FIELDS = {ConstantManager.USER_PHONE_KEY,
-    ConstantManager.USER_MAIL_KEY, ConstantManager.USER_VK_KEY, ConstantManager.USER_VK_KEY,
+    ConstantManager.USER_MAIL_KEY, ConstantManager.USER_VK_KEY,
     ConstantManager.USER_GIT_KEY, ConstantManager.USER_BIO_KEY};
 
     public PreferencesManager() {
