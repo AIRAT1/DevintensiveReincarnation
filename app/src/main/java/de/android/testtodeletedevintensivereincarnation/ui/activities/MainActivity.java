@@ -1,5 +1,6 @@
 package de.android.testtodeletedevintensivereincarnation.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -178,5 +179,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             userData.add(userFieldView.getText().toString());
         }
         dataManager.getPreferencesManager().saveUserProfileData(userData);
+    }
+    private void loadPhotoFromGallery() {
+
+    }
+    private void loadPhotoFromCamera() {
+
+    }
+
+    /**
+     * Получение результата из другой Activity (фото из камеры или галлереи)
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
