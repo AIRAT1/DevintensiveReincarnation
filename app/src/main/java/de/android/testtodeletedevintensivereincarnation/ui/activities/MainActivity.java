@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setupDrawer();
         loadUserInfoValue();
 
-        List<String> test = dataManager.getPreferencesManager().loadUserProfileData();
+//        List<String> test = dataManager.getPreferencesManager().loadUserProfileData();
 
         if (savedInstanceState == null) {
             // активность запускается впервые
@@ -135,6 +135,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (navigationDrawer.isDrawerOpen(GravityCompat.START)) {
+            navigationDrawer.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
     }
 
     /**
