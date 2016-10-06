@@ -2,6 +2,8 @@ package de.android.testtodeletedevintensivereincarnation.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private FloatingActionButton fab;
     private EditText userPhone, userMail, userVk, userGit, userBio;
     private List<EditText> userInfoViews;
+    private RelativeLayout profilePlaceholder;
+    private CollapsingToolbarLayout collapsingToolbar;
+
+    private AppBarLayout.LayoutParams appBarParams = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         navigationDrawer = (DrawerLayout)findViewById(R.id.navigation_drawer);
         fab = (FloatingActionButton)findViewById(R.id.fab);
         callImg = (ImageView)findViewById(R.id.call_img);
+        profilePlaceholder = (RelativeLayout)findViewById(R.id.profile_placeholder);
+        collapsingToolbar = (CollapsingToolbarLayout)findViewById(R.id.collapsing_toolbar);
 
         userPhone = (EditText)findViewById(R.id.phone_et);
         userMail = (EditText)findViewById(R.id.email_et);
@@ -120,6 +129,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private void setupToolbar() {
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
+        appBarParams = (AppBarLayout.LayoutParams) collapsingToolbar.getLayoutParams();
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -157,12 +167,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 userValue.setEnabled(true);
                 userValue.setFocusable(true);
                 userValue.setFocusableInTouchMode(true);
+
+                showProfilePlaceholder();
+                lockToolbar();
             }
         }else {
             for (EditText userValue : userInfoViews) {
                 userValue.setEnabled(false);
                 userValue.setFocusable(false);
                 userValue.setFocusableInTouchMode(false);
+
+                hideProfilePlaceholder();
+                unlockToolbar();
+
                 saveUserInfoValue();
             }
         }
@@ -196,5 +213,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+    }
+    private void hideProfilePlaceholder() {
+        profilePlaceholder.setVisibility(View.GONE);
+    }
+    private void showProfilePlaceholder() {
+        profilePlaceholder.setVisibility(View.VISIBLE);
+    }
+    private void lockToolbar() {
+        appBarParams.setScrollFlags(0);
+        collapsingToolbar.setLayoutParams(appBarParams);
+    }
+    private void unlockToolbar() {
+        appBarParams.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
+                | AppBarLayout.LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED);
+        collapsingToolbar.setLayoutParams(appBarParams);
     }
 }

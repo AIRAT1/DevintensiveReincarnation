@@ -21,7 +21,7 @@
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing"
+                android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:contentScrim="@color/color_primary"
@@ -38,9 +38,11 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/nicole_kidman_getty"/>
                     <RelativeLayout
+                        android:id="@+id/profile_placeholder"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/grey_background">
+                        android:background="@color/grey_background"
+                        android:visibility="gone">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
