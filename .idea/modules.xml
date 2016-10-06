@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DevintensiveReincarnation.iml" filepath="$PROJECT_DIR$/DevintensiveReincarnation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TestToDeleteDevintensiveReincarnation.iml" filepath="$PROJECT_DIR$/TestToDeleteDevintensiveReincarnation.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
