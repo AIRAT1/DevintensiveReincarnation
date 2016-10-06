@@ -11,4 +11,5 @@ public class ConstantManager {
     public static final String USER_GIT_KEY = "USER_GIT_KEY";
     public static final String USER_BIO_KEY = "USER_BIO_KEY";
     public static final int LOAD_PROFILE_PHOTO = 1;
+    public static final int REQUEST_CAMERA_PICTURE = 2;
 }
