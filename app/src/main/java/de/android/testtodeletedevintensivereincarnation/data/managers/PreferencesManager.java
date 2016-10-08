@@ -47,6 +47,7 @@ public class PreferencesManager {
         editor.apply();
     }
     public Uri loadUserPhoto() {
-        return Uri.parse(sharedPreferences.getString(ConstantManager.USER_PHOTO_KEY, null));
+        return Uri.parse(sharedPreferences.getString(ConstantManager.USER_PHOTO_KEY,
+                "android.resource://de.testtodeletedevintensivereincarnation/drawable/nicole_kidman_getty"));
     }
 }
