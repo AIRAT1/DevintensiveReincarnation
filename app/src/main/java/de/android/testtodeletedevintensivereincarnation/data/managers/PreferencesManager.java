@@ -1,6 +1,7 @@
 package de.android.testtodeletedevintensivereincarnation.data.managers;
 
 import android.content.SharedPreferences;
+import android.net.Uri;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,5 +40,14 @@ public class PreferencesManager {
         }
 
         return userList;
+    }
+    public void saveUserPhoto(Uri uri) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(ConstantManager.USER_PHOTO_KEY, uri.toString());
+        editor.apply();
+    }
+    public Uri loadUserPhoto() {
+        return Uri.parse(sharedPreferences.getString(ConstantManager.USER_PHOTO_KEY,
+                "android.resource://de.testtodeletedevintensivereincarnation/drawable/nicole_kidman_getty"));
     }
 }
