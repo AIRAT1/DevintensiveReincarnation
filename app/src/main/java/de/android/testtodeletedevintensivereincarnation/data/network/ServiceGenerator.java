@@ -10,4 +10,5 @@ public class ServiceGenerator {
     private static Retrofit.Builder builder = new Retrofit.Builder()
             .baseUrl(AppConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create());
+
 }
