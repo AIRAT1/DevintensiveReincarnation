@@ -29,12 +29,6 @@ public class PreferencesManager {
     public List<String> loadUserProfileData() {
         List<String> userList = new ArrayList<>();
 
-//        userList.add(sharedPreferences.getString(ConstantManager.USER_PHONE_KEY, "null"));
-//        userList.add(sharedPreferences.getString(ConstantManager.USER_MAIL_KEY, "null"));
-//        userList.add(sharedPreferences.getString(ConstantManager.USER_VK_KEY, "null"));
-//        userList.add(sharedPreferences.getString(ConstantManager.USER_GIT_KEY, "null"));
-//        userList.add(sharedPreferences.getString(ConstantManager.USER_BIO_KEY, "null"));
-
         for (int i = 0; i < USER_FIELDS.length; i++) {
             userList.add(sharedPreferences.getString(USER_FIELDS[i], null));
         }
@@ -49,5 +43,21 @@ public class PreferencesManager {
     public Uri loadUserPhoto() {
         return Uri.parse(sharedPreferences.getString(ConstantManager.USER_PHOTO_KEY,
                 "android.resource://de.testtodeletedevintensivereincarnation/drawable/nicole_kidman_getty"));
+    }
+    public void saveAuthToken(String authToken) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(ConstantManager.AUTH_TOKEN_KEY, authToken);
+        editor.apply();
+    }
+    public String getAuthToken() {
+        return sharedPreferences.getString(ConstantManager.AUTH_TOKEN_KEY, "null");
+    }
+    public void saveUserId(String userId) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(ConstantManager.USER_ID_KEY, userId);
+        editor.apply();
+    }
+    public String getUserId() {
+        return sharedPreferences.getString(ConstantManager.USER_ID_KEY, "null");
     }
 }
