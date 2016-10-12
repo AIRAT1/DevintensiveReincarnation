@@ -16,4 +16,13 @@
     <string name="user_profile_dialog_cancel">Отмена</string>
     <string name="user_profile_dialog_title">Изменить фотографию профиля</string>
     <string name="user_profile_choice_message">Выберите фото</string>
+
+    <!--AuthActivity-->
+    <string name="ff_medium">sans-serif-medium</string>
+    <string name="ff_regular">sans-serif</string>
+    <string name="auth.authorization_enter">Войти</string>
+    <string name="auth.email">Введите email</string>
+    <string name="auth.password">Введите пароль</string>
+    <string name="auth.login">Войти</string>
+    <string name="auth.remember">забыли пароль?</string>
 </resources>
