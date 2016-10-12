@@ -7,6 +7,7 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface RestService {
+
     @POST("login")
     Call<UserModelRes> loginUser (@Body UserLoginReq req);
 }

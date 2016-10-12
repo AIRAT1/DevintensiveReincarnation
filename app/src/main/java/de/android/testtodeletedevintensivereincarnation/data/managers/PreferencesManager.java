@@ -48,7 +48,7 @@ public class PreferencesManager {
         editor.putString(ConstantManager.USER_PHOTO_KEY, uri.toString());
         editor.apply();
     }
-    public List<String> LoadUserProfileValues() {
+    public List<String> loadUserProfileValues() {
         List<String> userValues = new ArrayList<>();
         userValues.add(sharedPreferences.getString(ConstantManager.USER_RATING_VALUES, "0"));
         userValues.add(sharedPreferences.getString(ConstantManager.USER_CODE_LINES_VALUES, "0"));

@@ -31,6 +31,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -63,6 +64,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private AppBarLayout appBarLayout;
     private ImageView profileImage;
 
+    private TextView userValueRating, userValueCodeLines, userValueProjects;
+    private List<TextView> userValueViews;
+
     private AppBarLayout.LayoutParams appBarParams = null;
     private File photoFile = null;
     private Uri selectedImage = null;
@@ -84,6 +88,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         appBarLayout = (AppBarLayout)findViewById(R.id.appbar_layout);
         profileImage = (ImageView)findViewById(R.id.user_photo);
 
+        userValueRating = (TextView)findViewById(R.id.user_info_rait_txt);
+        userValueCodeLines = (TextView)findViewById(R.id.user_info_code_lines_txt);
+        userValueProjects = (TextView)findViewById(R.id.user_info_project_txt);
+
+        userValueViews = new ArrayList<>();
+        userValueViews.add(userValueRating);
+        userValueViews.add(userValueCodeLines);
+        userValueViews.add(userValueProjects);
+
         userPhone = (EditText)findViewById(R.id.phone_et);
         userMail = (EditText)findViewById(R.id.email_et);
         userVk = (EditText)findViewById(R.id.vk_et);
@@ -102,7 +115,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         setupToolbar();
         setupDrawer();
-        loadUserFields();
+        initUserFields();
+        initUserInfoValue();
+
         Picasso.with(this)
                 .load(dataManager.getPreferencesManager().loadUserPhoto())
                 .placeholder(R.drawable.nicole_kidman_getty)
@@ -226,7 +241,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             }
         }
     }
-    private void loadUserFields() {
+    private void initUserFields() {
         List<String> userData = dataManager.getPreferencesManager().loadUserProfileData();
         for (int i = 0; i < userData.size(); i++) {
             userInfoViews.get(i).setText(userData.get(i));
@@ -239,8 +254,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
         dataManager.getPreferencesManager().saveUserProfileData(userData);
     }
-    private void loadUserInfoValues() {
-
+    private void initUserInfoValue() {
+        List<String> userData = dataManager.getPreferencesManager().loadUserProfileValues();
+        for (int i = 0; i < userData.size(); i++) {
+            userValueViews.get(i).setText(userData.get(i).toString());
+        }
     }
     private void loadPhotoFromGallery() {
         Intent takeGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

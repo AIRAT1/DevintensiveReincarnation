@@ -1,5 +1,6 @@
 package de.android.testtodeletedevintensivereincarnation.data.network;
 
+import de.android.testtodeletedevintensivereincarnation.data.network.interceptors.HeaderInterceptor;
 import de.android.testtodeletedevintensivereincarnation.utils.AppConfig;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -15,6 +16,7 @@ public class ServiceGenerator {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
 
+        httpClient.addInterceptor(new HeaderInterceptor());
         httpClient.addInterceptor(logging);
 
         Retrofit retrofit = builder
