@@ -102,7 +102,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         setupToolbar();
         setupDrawer();
-        loadUserInfoValue();
+        loadUserFields();
         Picasso.with(this)
                 .load(dataManager.getPreferencesManager().loadUserPhoto())
                 .placeholder(R.drawable.nicole_kidman_getty)
@@ -222,22 +222,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 unlockToolbar();
                 collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.white));
 
-                saveUserInfoValue();
+                saveUserFields();
             }
         }
     }
-    private void loadUserInfoValue() {
+    private void loadUserFields() {
         List<String> userData = dataManager.getPreferencesManager().loadUserProfileData();
         for (int i = 0; i < userData.size(); i++) {
             userInfoViews.get(i).setText(userData.get(i));
         }
     }
-    private void saveUserInfoValue() {
+    private void saveUserFields() {
         List<String> userData = new ArrayList<>();
         for (EditText userFieldView : userInfoViews) {
             userData.add(userFieldView.getText().toString());
         }
         dataManager.getPreferencesManager().saveUserProfileData(userData);
+    }
+    private void loadUserInfoValues() {
+
     }
     private void loadPhotoFromGallery() {
         Intent takeGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

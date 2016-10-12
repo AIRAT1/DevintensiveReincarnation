@@ -13,11 +13,13 @@ public class ConstantManager {
     public static final String USER_PHOTO_KEY = "USER_PHOTO_KEY";
     public static final String AUTH_TOKEN_KEY = "AUTH_TOKEN_KEY";
     public static final String USER_ID_KEY = "USER_ID_KEY";
+    public static final String USER_RATING_VALUES = "USER_RAITING_VALUES";
+    public static final String USER_CODE_LINES_VALUES = "USER_CODE_LINES_VALUES";
+    public static final String USER_PROJECT_VALUES = "USER_PROJECT_VALUES";
 
     public static final int LOAD_PROFILE_PHOTO = 1;
     public static final int REQUEST_CAMERA_PICTURE = 2;
     public static final int REQUEST_GALLERY_PICTURE = 3;
     public static final int PERMISSION_REQUEST_SETTINGS_CODE = 4;
     public static final int CAMERA_REQUEST_PERMISSION_CODE = 5;
-
 }
